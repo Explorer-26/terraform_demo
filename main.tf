@@ -20,3 +20,8 @@ resource "local_file" "file2" {
   filename = "file2.txt"
   content  = local_file.file1.content
 }
+
+resource "local_file" "file3" {
+  filename = "file3.txt"
+  content  = "Hello Hey"
+}
