@@ -1,0 +1,22 @@
+name: "Preflight AI Code Review"
+on:
+  pull_request:
+    paths:
+      - '**/*.tf'
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      
+      - name: Run Preflight AI
+        # Notice we are targeting the branch we just created!
+        uses: Karthik-Sethu-Raman/Preflight@feature/github-action-review
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
