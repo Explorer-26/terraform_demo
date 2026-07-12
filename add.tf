@@ -167,6 +167,3 @@ resource "aws_elasticache_cluster" "session_cache" {
   subnet_group_name = aws_db_subnet_group.prod_db_subnet_group.name
 }
 
-resource "aws_s3_bucket" "static_assets" {
-  bucket = "prod-static-assets-bucket"
-}
